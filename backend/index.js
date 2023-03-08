@@ -15,12 +15,11 @@ app.use(express.json())
 
 
 //===Rotas===//
-const get = require("./controllers/GET");
-const post = require("./controllers/POST");
+const Controller = require("./controllers/UserController")
 
-app.get("/", get)
-app.post("/cadastro", post)
-
+app.get("/", Controller.get)
+app.post("/cadastro", Controller.post)
+app.delete("/:_id", Controller.delete)
 
 //===Informações do .env===//
 const dbUser = process.env.DB_USER;
