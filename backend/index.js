@@ -2,21 +2,23 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const post = require("./controllers/POST");
+
 require('dotenv').config()
+
+//===CORS===//
 const cors = require("cors")
 app.use(cors())
+
 
 //===Para entender o formato JSON===//
 app.use(express.json())
 
 
-//===Rota principal===//
-app.get("/", (req, res) => {
-  res.json("Rodando")
-})
+//===Rotas===//
+const get = require("./controllers/GET");
+const post = require("./controllers/POST");
 
-//===Rota de registro de usuário===//
+app.get("/", get)
 app.post("/cadastro", post)
 
 
