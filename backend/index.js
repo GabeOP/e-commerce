@@ -14,12 +14,15 @@ app.use(cors())
 app.use(express.json())
 
 
-//===Rotas===//
-const Controller = require("./controllers/UserController")
+//===Rotas usuarios===//
+const userRoute = require("./routes/User")
+app.use("/", userRoute)
 
-app.get("/", Controller.get)
-app.post("/cadastro", Controller.post)
-app.delete("/:_id", Controller.delete)
+
+//===Rotas Produtos ===//
+const produtoRoute = require("./routes/Produto")
+app.use("/", produtoRoute)
+
 
 //===Informações do .env===//
 const dbUser = process.env.DB_USER;

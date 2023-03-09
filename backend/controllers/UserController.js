@@ -4,8 +4,9 @@ module.exports = {
   //===Método GET===//
   get: async (req, res) => {
     const resposta = await User.find();
-    res.json(resposta);
+    return res.status(200).json(resposta);
   },
+
 
   //===Método POST===//
   post: async (req, res) => {
@@ -40,9 +41,16 @@ module.exports = {
     }
   },
 
-  delete: async(req, res) =>{
-    const { _id } = req.params;
-    await User.deleteOne({_id: _id})
-    res.status(200).json({msg: "Usuário DELETADO com sucesso!"})
-  }
+  //===Método DELETE===/
+  // delete: async(req, res) =>{
+  //   const { _id } = req.params;
+  //   await User.deleteOne({_id: _id})
+  //   res.status(200).json({msg: "Usuário DELETADO com sucesso!"})
+  // },
+
+  //===Método PATCH===/
+  // patch: async(req, res) =>{
+  //   const { _id } = req.params;
+  //   const { nome, email, senha, confirmaSenha} = req.body;
+  // }
 };
