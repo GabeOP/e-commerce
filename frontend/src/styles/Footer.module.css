@@ -1,0 +1,62 @@
+
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    background-color: #464646;
+    width: 100vw;
+    height: 300px;
+   
+    
+   
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.containerprincipa{
+ display: flex;
+ align-items: center;
+ text-align: center;
+ gap: 30vw;
+}
+
+.containerinformation,.servico_cliente, .minha_conta li {
+ list-style: none;
+ 
+}
+
+.containerinformation,.servico_cliente,.minha_conta {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    align-items: center;
+}
+
+.containerinformation  h2 {
+    color: #FFFFFF;
+    align-self: center;
+}
+
+.servico_cliente h2 {
+    color: #FFFFFF;
+}
+
+.minha_conta h2{
+    color: #FFFFFF;
+}
+
+.containerempresa{
+    display: flex;
+    
+
+}
+
+
+
+
+
+ 
