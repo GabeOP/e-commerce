@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 module.exports = {
   //===Método GET===//
@@ -25,15 +26,19 @@ module.exports = {
       return res.status(422).json({ msg: "E-mail já cadastrado." });
     }
 
+    //usa o bcrypt
+    const salt = await bcrypt.genSalt(12);
+    const passwordHash = await bcrypt.hash(senha, salt)
+
     const user = new User({
       nome,
       email,
-      senha,
+      senha: passwordHash,
     });
 
     try {
-      user.save();
-      res.status(200).json({ msg: "Usuário criado com sucesso!" });
+      await user.save();
+      res.status(201).json({ msg: "Usuário criado com sucesso!" });
     } catch (error) {
       res
         .status(500)
