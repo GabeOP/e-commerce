@@ -8,25 +8,12 @@ module.exports = {
     return res.status(200).json(resposta);
   },
 
-
   //===Método POST===//
   post: async (req, res) => {
-    const { nome, email, senha, confirmaSenha } = req.body;
 
-    if (!nome || !email || !senha || !confirmaSenha) {
-      return res.status(422).json({ msg: "Preencha todos os campos." });
-    }
+    const {nome, email, senha } = req.body;
 
-    if (confirmaSenha !== senha) {
-      return res.status(422).json({ msg: "As senhas devem ser iguais." });
-    }
-
-    const userExists = await User.findOne({ email: email });
-    if (userExists) {
-      return res.status(422).json({ msg: "E-mail já cadastrado." });
-    }
-
-    //usa o bcrypt
+    //usa o bcrypt para encriptar senha
     const salt = await bcrypt.genSalt(12);
     const passwordHash = await bcrypt.hash(senha, salt)
 
