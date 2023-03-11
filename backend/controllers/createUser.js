@@ -13,16 +13,19 @@ module.exports = {
 
     const {nome, email, senha } = req.body;
 
+    //Verifica no banco de dados se o email do usuário já existe
+    const userExists = await User.findOne({ email: email });
+    if (userExists) {
+      return res.status(422).json({ msg: "E-mail já cadastrado." });
+    }
+    
     //usa o bcrypt para encriptar senha
     const salt = await bcrypt.genSalt(12);
     const passwordHash = await bcrypt.hash(senha, salt)
-
-    const user = new User({
-      nome,
-      email,
-      senha: passwordHash,
-    });
-
+    
+    //Instancia o usuário
+    const user = new User({nome, email, senha: passwordHash,});
+    
     try {
       await user.save();
       res.status(201).json({ msg: "Usuário criado com sucesso!" });

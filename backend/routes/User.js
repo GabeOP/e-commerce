@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const userController = require("../controllers/UserController");
-const UserMW = require("../middlewares/UserMW");
+const createUser = require("../controllers/createUser");
+const validateUser = require("../middlewares/validateUser");
 
-router.get("/usuario", userController.get)
-router.post("/cadastroUsuario", UserMW, userController.post)
+router.get("/usuario", createUser.get)
+router.post("/cadastroUsuario", validateUser, createUser.post)
 // app.patch("/:_id", Controller)
 // app.delete("/:_id", Controller.delete)
 

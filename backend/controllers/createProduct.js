@@ -9,16 +9,14 @@ module.exports = {
 
   post: async(req, res)=>{
     const {nome, preco, descricao} = req.body;
-  
-    if(!nome || !preco|| !descricao){
-      return res.status(422).json({msg:"Preencha todos os campos."})
-    }
 
+    //Verifica no bnaco de dados se já existe um produto cadastrado com o mesmo nome
     const productExists = await Produto.findOne({nome: nome})
     if(productExists){
       return res.status(422).json({msg: "Produto com um nome idêntico já cadastrado. Tente novamente!"})
     }
 
+    //Instancia o produto
     const produto = new Produto({nome, preco, descricao})
   
     try{
