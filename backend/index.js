@@ -1,7 +1,7 @@
 //===Import das dependências===//
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+
 
 require('dotenv').config()
 
@@ -27,13 +27,9 @@ app.use("/", produtoRoute)
 const loginRoute = require("./routes/Login")
 app.use("/", loginRoute)
 
-//===Informações do .env===//
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASS;
+//Conexão com o banco de dados
+const connectDb = require("./database/db")
+connectDb();
 
-
-mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.ad7kia4.mongodb.net/?retryWrites=true&w=majority`)
-.then(()=>{
-  app.listen(3000)
-  console.log("Conectado ao banco!")
-}).catch((err) => console.log(err))
+const PORT = 3000;
+app.listen(PORT, ()=> console.log(`Servidor rodando na porta ${PORT}`))
