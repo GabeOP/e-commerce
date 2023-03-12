@@ -15,16 +15,16 @@ app.use(express.json())
 
 
 //===Rotas usuarios===//
-const userRoute = require("./routes/User")
+const userRoute = require("./routes/user.route")
 app.use("/", userRoute)
 
 
 //===Rotas Produtos ===//
-const produtoRoute = require("./routes/Produto");
+const produtoRoute = require("./routes/product.route");
 app.use("/", produtoRoute)
 
 //==Rota Login==//
-const loginRoute = require("./routes/Login")
+const loginRoute = require("./routes/login.route")
 app.use("/", loginRoute)
 
 //Conexão com o banco de dados

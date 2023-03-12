@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const createUser = require("../controllers/createUser");
+const createUser = require("../controllers/user.controller");
 const validateUser = require("../middlewares/validateUser");
 
 router.get("/usuario", createUser.get)
