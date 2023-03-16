@@ -14,6 +14,22 @@ app.use(cors())
 app.use(express.json())
 
 
+const User = require("./models/User");
+
+app.get("/usuario/:id", async(req,res)=>{
+
+  const id = req.params.id
+
+  const user = await User.findById(id, '-senha')
+
+  if(!user){
+    return res.status(404).json({msg: "Usuário não encontrado"})
+  }
+
+  res.status(200).json(user)
+})
+
+
 //===Rotas usuarios===//
 const userRoute = require("./routes/user.route")
 app.use("/", userRoute)
