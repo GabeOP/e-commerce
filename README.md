@@ -8,7 +8,7 @@ O objetivo do projeto é colocar em prática e desenvolver novos conhecimentos. 
 
 ### Dentro da pasta backend temos as pastas "controllers", "middlewares", "models" e "routes"
 - 📁 **controllers** é onde possui arquivos com códigos que se comunicam diretamente com o banco de dados. (Verifica se existe no banco de dados e instancia o objeto)
-- 📁 **db** é onde fica a conexão com o banco de dados MongoDB
+- 📁 **database** é onde fica a conexão com o banco de dados MongoDB
 - 📁 **middlewares** é onde ficam as verificações das informações fornecidas. (Se todos os campos foram preenchidos, se as senhas são idênticas etc)
 - 📁 **models** é onde ficam armazenados os modelos das collections(tabelas) do banco de dados
 - 📁 **routes** é onde estão as rotas. Os arquivos contidos nela têm como responsabilidade determinar o método HTTP utilizado em cada rota e também recebem os **middlewares** e os **controllers**
@@ -17,7 +17,7 @@ O objetivo do projeto é colocar em prática e desenvolver novos conhecimentos. 
 
 - [x] Cadastro de usuários (backend)
 - [x] Cadastro de produtos (backend)
-- [x] Login de usuário com autenticação
+- [x] Login de usuário com autenticação usando JWT
 - [ ] Filtragem de produtos
 - [ ] Rota com acesso restrito
 
