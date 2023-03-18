@@ -35,17 +35,4 @@ module.exports = {
         .json({ msg: "Ocorreu um erro. Tente novamente mais tarde." });
     }
   },
-
-  //===Método DELETE===/
-  // delete: async(req, res) =>{
-  //   const { _id } = req.params;
-  //   await User.deleteOne({_id: _id})
-  //   res.status(200).json({msg: "Usuário DELETADO com sucesso!"})
-  // },
-
-  //===Método PATCH===/
-  // patch: async(req, res) =>{
-  //   const { _id } = req.params;
-  //   const { nome, email, senha, confirmaSenha} = req.body;
-  // }
 };

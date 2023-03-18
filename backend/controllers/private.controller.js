@@ -10,9 +10,6 @@ module.exports = {
     if(!user){
       return res.status(404).json({msg: "Usuário não encontrado"})
     }
-    if(!id){
-      return res.status(404).json({msg:"Teste"})
-    }
   
     res.status(200).json(user)
   }
